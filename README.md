@@ -13,7 +13,8 @@ If you just want to get the app running quickly to test it out, first install
 [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/), and follow along:
 
 ```sh
-git clone git@github.com:sharetribe/flex-template-web.git      # clone this repository
+git@github.com:garygz/flex-template-web.git
+# clone this repository
 cd flex-template-web/                                          # change to the cloned directory
 yarn install                                                   # install dependencies
 yarn run config                                                # add the mandatory env vars to your local config
