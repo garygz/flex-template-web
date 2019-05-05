@@ -36,6 +36,8 @@ import {
 } from './EditListingPage.duck';
 
 import css from './EditListingPage.css';
+import WineryEditListingWizard from "../../components/WineryEditListingWizard/WineryEditListingWizard";
+
 
 const { UUID } = sdkTypes;
 
@@ -70,6 +72,8 @@ export const EditListingPageComponent = props => {
   const { id, type } = params;
   const isNewURI = type === LISTING_PAGE_PARAM_TYPE_NEW;
   const isDraftURI = type === LISTING_PAGE_PARAM_TYPE_DRAFT;
+  console.log(currentUser);
+  const userType = currentUser ? currentUser.attributes.profile.protectedData.userType : "p";
 
   const listingId = page.submittedListingId || (id ? new UUID(id) : null);
   const currentListing = ensureOwnListing(getOwnListing(listingId));
@@ -143,51 +147,96 @@ export const EditListingPageComponent = props => {
 
     const title =
       isNewURI || isDraftURI
-        ? intl.formatMessage({ id: 'EditListingPage.titleCreateListing' })
-        : intl.formatMessage({ id: 'EditListingPage.titleEditListing' });
+        ? intl.formatMessage({id: 'EditListingPage.titleCreateListing'})
+        : intl.formatMessage({id: 'EditListingPage.titleEditListing'});
+    if (userType === 'p') {
 
-    return (
-      <Page title={title} scrollingDisabled={scrollingDisabled}>
-        <TopbarContainer
-          className={css.topbar}
-          mobileRootClassName={css.mobileTopbar}
-          desktopClassName={css.desktopTopbar}
-          mobileClassName={css.mobileTopbar}
-        />
-        <EditListingWizard
-          id="EditListingWizard"
-          className={css.wizard}
-          params={params}
-          disabled={disableForm}
-          errors={errors}
-          fetchInProgress={fetchInProgress}
-          newListingPublished={newListingPublished}
-          history={history}
-          images={images}
-          listing={currentListing}
-          availability={{
-            calendar: page.availabilityCalendar,
-            onFetchAvailabilityExceptions,
-            onCreateAvailabilityException,
-            onDeleteAvailabilityException,
-            onFetchBookings,
-          }}
-          onUpdateListing={onUpdateListing}
-          onCreateListingDraft={onCreateListingDraft}
-          onPublishListingDraft={onPublishListingDraft}
-          onPayoutDetailsFormChange={onPayoutDetailsFormChange}
-          onPayoutDetailsSubmit={onPayoutDetailsSubmit}
-          onImageUpload={onImageUpload}
-          onUpdateImageOrder={onUpdateImageOrder}
-          onRemoveImage={onRemoveListingImage}
-          onChange={onChange}
-          currentUser={currentUser}
-          onManageDisableScrolling={onManageDisableScrolling}
-          updatedTab={page.updatedTab}
-          updateInProgress={page.updateInProgress || page.createListingDraftInProgress}
-        />
-      </Page>
-    );
+      return (
+        <Page title={title} scrollingDisabled={scrollingDisabled}>
+          <TopbarContainer
+            className={css.topbar}
+            mobileRootClassName={css.mobileTopbar}
+            desktopClassName={css.desktopTopbar}
+            mobileClassName={css.mobileTopbar}
+          />
+          <WineryEditListingWizard
+            id="WineryEditListingWizard"
+            className={css.wizard}
+            params={params}
+            disabled={disableForm}
+            errors={errors}
+            fetchInProgress={fetchInProgress}
+            newListingPublished={newListingPublished}
+            history={history}
+            images={images}
+            listing={currentListing}
+            availability={{
+              calendar: page.availabilityCalendar,
+              onFetchAvailabilityExceptions,
+              onCreateAvailabilityException,
+              onDeleteAvailabilityException,
+              onFetchBookings,
+            }}
+            onUpdateListing={onUpdateListing}
+            onCreateListingDraft={onCreateListingDraft}
+            onPublishListingDraft={onPublishListingDraft}
+            onPayoutDetailsFormChange={onPayoutDetailsFormChange}
+            onPayoutDetailsSubmit={onPayoutDetailsSubmit}
+            onImageUpload={onImageUpload}
+            onUpdateImageOrder={onUpdateImageOrder}
+            onRemoveImage={onRemoveListingImage}
+            onChange={onChange}
+            currentUser={currentUser}
+            onManageDisableScrolling={onManageDisableScrolling}
+            updatedTab={page.updatedTab}
+            updateInProgress={page.updateInProgress || page.createListingDraftInProgress}
+          />
+        </Page>
+      );
+    } else {
+      return (
+        <Page title={title} scrollingDisabled={scrollingDisabled}>
+          <TopbarContainer
+            className={css.topbar}
+            mobileRootClassName={css.mobileTopbar}
+            desktopClassName={css.desktopTopbar}
+            mobileClassName={css.mobileTopbar}
+          />
+          <EditListingWizard
+            id="EditListingWizard"
+            className={css.wizard}
+            params={params}
+            disabled={disableForm}
+            errors={errors}
+            fetchInProgress={fetchInProgress}
+            newListingPublished={newListingPublished}
+            history={history}
+            images={images}
+            listing={currentListing}
+            availability={{
+              calendar: page.availabilityCalendar,
+              onFetchAvailabilityExceptions,
+              onCreateAvailabilityException,
+              onDeleteAvailabilityException,
+              onFetchBookings,
+            }}
+            onUpdateListing={onUpdateListing}
+            onCreateListingDraft={onCreateListingDraft}
+            onPublishListingDraft={onPublishListingDraft}
+            onPayoutDetailsFormChange={onPayoutDetailsFormChange}
+            onPayoutDetailsSubmit={onPayoutDetailsSubmit}
+            onImageUpload={onImageUpload}
+            onUpdateImageOrder={onUpdateImageOrder}
+            onRemoveImage={onRemoveListingImage}
+            onChange={onChange}
+            currentUser={currentUser}
+            onManageDisableScrolling={onManageDisableScrolling}
+            updatedTab={page.updatedTab}
+            updateInProgress={page.updateInProgress || page.createListingDraftInProgress}
+          />
+        </Page>
+      );
+    }
   } else {
     // If user has come to this page through a direct linkto edit existing listing,
     // we need to load it first.

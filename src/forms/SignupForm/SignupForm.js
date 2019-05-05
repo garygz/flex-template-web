@@ -119,6 +119,14 @@ const SignupFormComponent = props => (
         id: 'SignupForm.typeImporter',
       });
 
+      const typeDistributorMessage = intl.formatMessage({
+        id: 'SignupForm.typeDistributor',
+      });
+
+      const typeLabelPlaceholderMessage = intl.formatMessage({
+        id: 'SignupForm.typeLabelPlaceholder',
+      });
+
       const lastNameRequired = validators.required(lastNameRequiredMessage);
 
       const classes = classNames(rootClassName || css.root, className);
@@ -132,6 +140,7 @@ const SignupFormComponent = props => (
         }
       };
       const required = validators.required('This field is required');
+
       const termsLink = (
         <span
           className={css.termsLink}
@@ -189,9 +198,15 @@ const SignupFormComponent = props => (
               validate={passwordValidators}
             />
             <div className={css.name}>
-              <FieldSelect id="userType" name="userType" label={typeLabelMessage} validate={required}>
+              <FieldSelect id="userType"
+                           name="userType"
+                           label={typeLabelMessage}
+                           placeholder={typeLabelPlaceholderMessage}
+                           validate={required}>
+                <option value="na">Select one below</option>
                 <option value="p">{typeProducerMessage}</option>
                 <option value="i">{typeImporterMessage}</option>
+                <option value="d">{typeDistributorMessage}</option>
               </FieldSelect>
             </div>
 
