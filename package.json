@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "GrapeIn",
   "version": "2.14.0",
   "private": true,
   "license": "Apache-2.0",
@@ -10,6 +10,7 @@
     "array-includes": "^3.0.3",
     "array.prototype.find": "^2.0.4",
     "autosize": "^4.0.0",
+    "aws-sdk": "^2.441.0",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.18.3",
     "classnames": "^2.2.6",
@@ -77,7 +78,7 @@
     "test": "sharetribe-scripts test --env=jsdom",
     "test-ci": "sharetribe-scripts test --env=jsdom --runInBand",
     "eject": "sharetribe-scripts eject",
-    "start": "node server/index.js",
+    "start": "NODE_ENV=production node server/index.js",
     "dev-server": "export NODE_ENV=development PORT=4000 REACT_APP_CANONICAL_ROOT_URL=http://localhost:4000&&yarn run build&&nodemon --watch server server/index.js",
     "heroku-postbuild": "yarn run build",
     "translate": "node scripts/translations.js"

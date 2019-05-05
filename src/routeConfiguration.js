@@ -123,6 +123,27 @@ const routeConfiguration = () => {
       component: props => <EditListingPage {...props} />,
       loadData: EditListingPage.loadData,
     },
+    //-- Winery routes
+    {
+      path: '/l/new',
+      name: 'WineryNewListingPage',
+      auth: true,
+      component: () => (
+        <NamedRedirect
+          name="EditListingPage"
+          params={{ slug: draftSlug, id: draftId, type: 'new', tab: 'description' }}
+        />
+      ),
+    },
+    {
+      path: '/l/:slug/:id/:type/:tab',
+      name: 'WineryEditListingPage',
+      auth: true,
+      component: props => <EditListingPage {...props} />,
+      loadData: EditListingPage.loadData,
+    },
+
+    // ---
 
     // Canonical path should be after the `/l/new` path since they
     // conflict and `new` is not a valid listing UUID.
