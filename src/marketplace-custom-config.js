@@ -56,3 +56,5 @@ export const priceFilterConfig = {
 export const dateRangeFilterConfig = {
   active: true,
 };
+
+

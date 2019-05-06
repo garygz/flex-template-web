@@ -96,7 +96,6 @@ LandingPageComponent.propTypes = {
 };
 
 const mapStateToProps = state => {
-  console.log('Landing page state', state);
   return {
     scrollingDisabled: isScrollingDisabled(state),
     userType: state.user.currentUser ? state.user.currentUser.attributes.profile.protectedData.userType : 'na'
