@@ -11,36 +11,36 @@ export default [
   {
     id: 'default-helsinki',
     predictionPlace: {
-      address: 'Helsinki, Finland',
-      bounds: new LatLngBounds(new LatLng(60.29783, 25.25448), new LatLng(59.92248, 24.78287)),
+      address: 'New York, USA',
+      bounds: new LatLngBounds(new LatLng(46.63704981, -72.40922022), new LatLng(40.53187852,-80.26679704)),
     },
   },
   {
     id: 'default-turku',
     predictionPlace: {
-      address: 'Turku, Finland',
-      bounds: new LatLngBounds(new LatLng(60.53045, 22.38197), new LatLng(60.33361, 22.06644)),
+      address: 'New Jersey, USA',
+      bounds: new LatLngBounds(new LatLng(40.61586822, -73.60007516), new LatLng(38.99510404, -75.56449053)),
     },
   },
   {
     id: 'default-tampere',
     predictionPlace: {
-      address: 'Tampere, Finland',
-      bounds: new LatLngBounds(new LatLng(61.83657, 24.11838), new LatLng(61.42728, 23.5422)),
+      address: 'Massachuttes, USA',
+      bounds: new LatLngBounds(new LatLng(42.94318836, -71.02279887), new LatLng(41.37931432, -72.98721424)),
     },
   },
   {
     id: 'default-oulu',
     predictionPlace: {
-      address: 'Oulu, Finland',
-      bounds: new LatLngBounds(new LatLng(65.56434, 26.77069), new LatLng(64.8443, 24.11494)),
+      address: 'Illinois, USA',
+      bounds: new LatLngBounds(new LatLng(43.59559516, -84.83808182), new LatLng(37.17528237, -92.6957433)),
     },
   },
   {
     id: 'default-ruka',
     predictionPlace: {
-      address: 'Ruka, Finland',
-      bounds: new LatLngBounds(new LatLng(66.16997, 29.16773), new LatLng(66.16095, 29.13572)),
+      address: 'Virginia, USA',
+      bounds: new LatLngBounds(new LatLng(41.73012935,-74.56716423), new LatLng(33.96521904, -83.73793524)),
     },
   },
 ];

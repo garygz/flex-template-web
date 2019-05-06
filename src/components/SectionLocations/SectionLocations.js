@@ -51,19 +51,19 @@ const SectionLocations = props => {
       </div>
       <div className={css.locations}>
         {locationLink(
-          'Helsinki',
+          'New York',
           helsinkiImage,
-          '?address=Helsinki%2C%20Finland&bounds=60.2978389%2C25.254484899999966%2C59.9224887%2C24.782875800000056&origin=60.16985569999999%2C24.93837910000002'
+          '?address=New%20York%2C%20USA&bounds=46.63704981%2C-72.40922022%2C40.53187852%2C-80.26679704'
         )}
         {locationLink(
-          'Rovaniemi',
+          'Massachusetts',
           rovaniemiImage,
-          '?address=Rovaniemi%2C%20Finland&bounds=67.18452510000002%2C27.32667850000007%2C66.1553745%2C24.736871199999996&origin=66.50394779999999%2C25.729390599999988'
+          '?address=Massachuttes%2C%20USA&bounds=42.94318836%2C-71.02279887%2C41.37931432%2C-72.98721424'
         )}
         {locationLink(
-          'Ruka',
+          'Illinois',
           rukaImage,
-          '?address=Ruka%2C%20Finland&bounds=66.1704578%2C29.14246849999995%2C66.1614402%2C29.110453699999994&origin=66.16594940000002%2C29.12646110000003'
+          '?address=Illinois%2C%20USA&bounds=43.59559516%2C-84.83808182%2C37.17528237%2C-92.6957433'
         )}
       </div>
     </div>
